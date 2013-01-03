@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="stylesheet" href="jquery.mobile-1.1.0.css" />
+<script src="jquery-1.6.4.js"></script>
+<script src="jquery.mobile-1.1.0.js"></script>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Alex+Brush' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+<!-- RECHNER -->
+<div data-role="page" id="rechner" data-theme="a">
+  <div data-role="header" data-id="head1" data-position="fixed"  data-tap-toggle="false" >
+    <div class="ui-grid-b">
+      <div class="ui-block-a"><img class="logo" src="img/logo.png" width="204" height="50" /></div>
+      <div class="ui-block-b"></div>
+      <div class="ui-block-c"></div>
+    </div>
+  </div>
+  
+  
+  <div data-role="content">
+	<script type="text/javascript">
+		function bremsweg () {
+			var bremsweg_a,bremsweg_b,bremsweg_c;
+			bremsweg_a = document.getElementById("bremsweg_wert1").value;
+			bremsweg_c = (bremsweg_a / 10) * (bremsweg_a /10);
+			document.getElementById("ergebnis_bremsweg").innerHTML = parseFloat(bremsweg_c.toFixed(1));
+			anhalteweg ();
+		}
+    </script>
+    <script type="text/javascript">
+		var reaktionsweg_c = 0;
+		function reaktionsweg () {
+			var reaktionsweg_a,reaktionsweg_b;
+			reaktionsweg_a = parseFloat(document.getElementById("bremsweg_wert1").value);
+			bremsweg_a = parseFloat(document.getElementById("bremsweg_wert1").value);
+			/*	reaktionsweg = parseInt(document.getElementById("reaktionsweg_wert2").value);*/	
+			reaktionsweg_c = (reaktionsweg_a / 10) * 3 ;
+			document.getElementById("ergebnis_reaktionsweg").innerHTML = parseFloat(reaktionsweg_c.toFixed(1));
+			gefahrenbremsung();
+		}
+	</script>
+    <script type="text/javascript">
+		function anhalteweg () {
+			var anhalteweg_a,anhalteweg_b,anhalteweg_c;	
+			bremsweg_a = parseFloat(document.getElementById("bremsweg_wert1").value);
+			anhalteweg_a = (bremsweg_a / 10) * (bremsweg_a /10);
+			anhalteweg_c = anhalteweg_a + reaktionsweg_c;
+			document.getElementById("ergebnis_anhalteweg").innerHTML = parseFloat(anhalteweg_c.toFixed(1));
+			reaktionsweg ();
+		}
+	</script>
+    <script type="text/javascript">
+		function gefahrenbremsung () {
+			var gefahrenbremsung, bremsweg_a, bremsweg_c, y;
+			bremsweg_a = document.getElementById("bremsweg_wert1").value;
+			bremsweg_c = (bremsweg_a / 10) * (bremsweg_a /10);	
+			gefahrenbremsung = bremsweg_c/2;
+			document.getElementById("ergebnis_gefahrenbremsung").innerHTML = parseFloat(gefahrenbremsung.toFixed(1));
+		}
+	</script>
+        <label for="slider-0"><h2>Geschwindigkeit</h2></label>
+        <input type="range" name="slider" id="bremsweg_wert1" value="50" min="5" max="200" onchange="bremsweg()" data-track-theme="b"/><br /><br />
+        <div class="ui-grid-b" style="margin-left:-15px;">
+          <div class="ui-block-a" style="text-align:right"><a href="popup_klassen/bremsweg.html" data-rel="dialog" data-transition="none" style="text-decoration:none">Bremsweg</a><br />
+                <label id="ergebnis_bremsweg">25</label> <label>m</label><br /></div>
+          <div class="ui-block-b"></div>
+          <div class="ui-block-c" style="text-align:left; margin-left:-50px;"><a href="popup_klassen/reaktionsweg.html" data-rel="dialog" data-transition="slidedown" style="text-decoration:none">Reaktionsweg</a><br />
+                <label id="ergebnis_reaktionsweg">15</label> <label>m</label><br /></div>
+          <div class="ui-block-a" style="text-align:right"><a href="popup_klassen/anhalteweg.html" data-rel="dialog" data-transition="none" style="text-decoration:none">Anhalteweg</a><br />
+                <label id="ergebnis_anhalteweg">40</label> <label>m</label><br /></div>
+          <div class="ui-block-b"></div>
+          <div class="ui-block-c" style="text-align:left; margin-left:-50px;"><a href="popup_klassen/gefahr.html" data-rel="dialog" data-transition="none" style="text-decoration:none">Gefahrenbremsung</a><br />
+                <label id="ergebnis_gefahrenbremsung">12.5</label> <label>m</label><br /></div>
+        </div>
+    </div>
+  
+  
+  <div class="own_navbar" data-role="footer" data-id="foo1"  data-position="fixed"  data-tap-toggle="false" >		
+	<div class="own_navbar" data-role="navbar"  data-iconpos="top">
+		<ul>
+			<li><a href="#rechner"  data-role="button" id="calc" data-icon="custom" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-iconpos="top" data-theme="a" data-inline="true" class="ui-btn-active ui-state-persist" data-transition="none">Rechner</a></li>
+			<li><a href="#klassen"  data-role="button" id="id" data-icon="custom" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-iconpos="top" data-theme="a" data-inline="true" data-transition="none">Klassen</a></li>
+			<!-- <li><a href="#kosten"  data-role="button" id="prices" data-icon="custom" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-iconpos="top" data-theme="a" data-inline="true">Kosten</a></li> -->
+            <li><a href="#kontakt"  data-role="button" id="contact" data-icon="custom" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-iconpos="top" data-theme="a" data-inline="true" data-transition="none">Kontakt</a></li>
+		</ul>
+	</div><!-- /navbar -->
+</div><!-- /footer -->
+</div>
+<!-- RECHNER -->
+
+<!-- KLASSEN -->
+<div data-role="page" id="klassen" data-theme="a">
+  <div data-role="header" data-id="head1" data-position="fixed"  data-tap-toggle="false" >
+    <div class="ui-grid-b">
+      <div class="ui-block-a"><img class="logo" src="img/logo.png" width="204" height="50" /></div>
+      <div class="ui-block-b"></div>
+      <div class="ui-block-c"></div>
+    </div>
+  </div>
+  
+  <div data-role="content">
+  <br />
+    <div class="ui-grid-a">
+      <div class="ui-block-a"><a href="popup_klassen/klasse_m.html" data-rel="dialog" data-transition="none"><img class="imgklassen" src="img/klassen/klasse_m.gif" width="117" height="50" /></a></div>
+      <div class="ui-block-b" style="text-align:right"><a href="popup_klassen/klasse_a1.html" data-rel="dialog" data-transition="slidedown"><img class="imgklassen" src="img/klassen/klasse_a.gif" width="117" height="50" /></a></div>
+      
+      <div class="ui-block-a"><a href="popup_klassen/klasse_a.html" data-rel="dialog" data-transition="none"><img class="imgklassen" src="img/klassen/klasse_a.gif" width="117" height="50" /></a></div>
+      <div class="ui-block-b" style="text-align:right"><a href="popup_klassen/klasse_b.html" data-rel="dialog" data-transition="slidedown"><img class="imgklassen" src="img/klassen/klasse_b.gif" width="117" height="50" /></a></div>
+      
+      <div class="ui-block-a"><a href="popup_klassen/klasse_be.html" data-rel="dialog" data-transition="none"><img class="imgklassen" src="img/klassen/klasse_be.gif" width="117" height="50" /></a></div>
+      <div class="ui-block-b" style="text-align:right"><a href="popup_klassen/klasse_c.html" data-rel="dialog" data-transition="slidedown"><img class="imgklassen" src="img/klassen/klasse_c.gif" width="117" height="50" /></a></div>
+      
+      <div class="ui-block-a"><a href="popup_klassen/klasse_ce.html" data-rel="dialog" data-transition="none"><img class="imgklassen" src="img/klassen/klasse_ce.gif" width="117" height="50" /></a></div>
+      <div class="ui-block-b" style="text-align:right"><a href="popup_klassen/klasse_d.html" data-rel="dialog" data-transition="slidedown"><img class="imgklassen" src="img/klassen/klasse_d.gif" width="117" height="50" /></a></div>
+      
+      <div class="ui-block-a"><a href="popup_klassen/klasse_de.html" data-rel="dialog" data-transition="none"><img class="imgklassen" src="img/klassen/klasse_de.gif" width="117" height="50" /></a></div>
+      <div class="ui-block-b" style="text-align:right"><a href="popup_klassen/klasse_l.html" data-rel="dialog" data-transition="slidedown"><img class="imgklassen" src="img/klassen/klasse_l.gif" width="117" height="50" /></a></div>
+      
+      <div class="ui-block-a"><a href="popup_klassen/klasse_t.html" data-rel="dialog" data-transition="none"><img class="imgklassen" src="img/klassen/klasse_t.gif" width="117" height="50" /></a></div>
+      <div class="ui-block-b" style="text-align:right"><a href="popup_klassen/klasse_s.html" data-rel="dialog" data-transition="slidedown"><img class="imgklassen" src="img/klassen/klasse_s.gif" width="117" height="50" /></a></div>
+    </div>
+  
+  </div>
+  
+  <div class="own_navbar" data-role="footer" data-id="foo1"  data-position="fixed"  data-tap-toggle="false" >		
+	<div class="own_navbar" data-role="navbar" data-iconpos="top">
+		<ul>
+			<li><a href="#rechner"  data-role="button" id="calc" data-icon="custom" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-iconpos="top" data-theme="a" data-inline="true" data-transition="none">Rechner</a></li>
+			<li><a href="#klassen" class="ui-btn-active ui-state-persist" data-role="button" id="id" data-icon="custom" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-iconpos="top" data-theme="a" data-inline="true" data-transition="none">Klassen</a></li>
+			<!-- <li><a href="#kosten"  data-role="button" id="prices" data-icon="custom" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-iconpos="top" data-theme="a" data-inline="true">Kosten</a></li> -->
+            <li><a href="#kontakt"  data-role="button" id="contact" data-icon="custom" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-iconpos="top" data-theme="a" data-inline="true" data-transition="none">Kontakt</a></li>
+		</ul>
+	</div><!-- /navbar -->
+</div><!-- /footer -->
+</div>
+<!-- KLASSEN -->
+
+<!-- KOSTEN -->
+<div data-role="page" id="kosten" data-theme="a">
+  <div data-role="header" data-id="head1" data-position="fixed"  data-tap-toggle="false" >
+  <div class="ui-grid-b">
+      <div class="ui-block-a"><img class="logo" src="img/logo.png" width="204" height="50" /></div>
+      <div class="ui-block-b"></div>
+      <div class="ui-block-c"></div>
+    </div>
+
+  </div>
+  
+  <div data-role="content">
+  <br /><br />
+  	<label for="klasse" class="select">Bitte Klasse w&auml;hlen</label>
+		<select name="klasse" id="klasse" onchange="preis(value)">
+  			<option value="m">Klasse M</option>
+           <option value="a">Klasse A/A1</option>
+           <option value="b" selected="selected">Klasse B</option>
+           <option value="be">Klasse BE</option>
+           <option value="c">Klasse C/CE</option>
+           <option value="d">Klasse D</option>
+		</select>
+        
+        <script>
+		function preis(klasse) {
+			switch (klasse) {
+ 				case "m":
+					document.getElementById("k1").innerHTML = "100 &euro;";
+					document.getElementById("k2").innerHTML = "50 &euro;";
+					document.getElementById("k3").innerHTML = "40 &euro;";
+					document.getElementById("k4").innerHTML = "70 &euro;";
+					document.getElementById("k5").innerHTML = "41 &euro;";
+					document.getElementById("k6").innerHTML = "--";
+					break;
+				case "a":
+					document.getElementById("k1").innerHTML = "160 &euro;";
+					document.getElementById("k2").innerHTML = "80 &euro;";
+					document.getElementById("k3").innerHTML = "40 &euro;";
+					document.getElementById("k4").innerHTML = "100 &euro;";
+					document.getElementById("k5").innerHTML = "41 &euro;";
+					document.getElementById("k6").innerHTML = "49 &euro;";
+					break;
+				case "b":
+					document.getElementById("k1").innerHTML = "195 &euro;";
+					document.getElementById("k2").innerHTML = "95 &euro;";
+					document.getElementById("k3").innerHTML = "40 &euro;";
+					document.getElementById("k4").innerHTML = "90 &euro;";
+					document.getElementById("k5").innerHTML = "35 &euro;";
+					document.getElementById("k6").innerHTML = "35 &euro;";
+					break;
+				case "be":
+					document.getElementById("k1").innerHTML = "50 &euro;";
+					document.getElementById("k2").innerHTML = "--";
+					document.getElementById("k3").innerHTML = "--";
+					document.getElementById("k4").innerHTML = "100 &euro;";
+					document.getElementById("k5").innerHTML = "44 &euro;";
+					document.getElementById("k6").innerHTML = "44 &euro;";
+					break;
+				case "c":
+					document.getElementById("k1").innerHTML = "280 &euro;";
+					document.getElementById("k2").innerHTML = "100 &euro;";
+					document.getElementById("k3").innerHTML = "40 &euro;";
+					document.getElementById("k4").innerHTML = "128 &euro;";
+					document.getElementById("k5").innerHTML = "75 &euro;";
+					document.getElementById("k6").innerHTML = "75 &euro;";
+					break;
+				case "d":
+					document.getElementById("k1").innerHTML = "280 &euro;";
+					document.getElementById("k2").innerHTML = "100 &euro;";
+					document.getElementById("k3").innerHTML = "40 &euro;";
+					document.getElementById("k4").innerHTML = "128 &euro;";
+					document.getElementById("k5").innerHTML = "70 &euro;";
+					document.getElementById("k6").innerHTML = "70 &euro;";
+					break;
+			}	
+		}
+		</script>
+        
+        <p>&nbsp;</p>
+            <ul data-role="listview">
+                <li>F&uuml;r die allgemeinen Aufwendungen einschliesslich des theoretischen Unterrichts <span class="ui-li-count" id="k1">195 &euro;</span></li>
+                <li>F&uuml;r die allgemeinen Aufwendungen einschliesslich des theoretischen Unterrichts bei nichtbestehen der theoretischen Pr&uuml;fung <span class="ui-li-count" id="k2">80 &euro;</span></li>
+                <li>Theoretische Pr&uuml;fung <span class="ui-li-count" id="k3">40 &euro;</span></li>
+                <li>Praktische Pr&uuml;fung <span class="ui-li-count" id="k4">100 &euro;</span></li>
+                <li>Fahrstunde <span class="ui-li-count" id="k5">41 &euro;</span></li>
+                <li>Besondere Ausbildungsfahrten <span class="ui-li-count" id="k6">49 &euro;</span></li>
+            </ul>
+        <p>&nbsp;</p>
+  </div>
+  
+  
+  <div class="own_navbar" data-role="footer" data-id="foo1"  data-position="fixed"  data-tap-toggle="false" >		
+	<div class="own_navbar" data-role="navbar" data-iconpos="top">
+		<ul>
+			<li><a href="#rechner" data-transition="none" data-role="button" id="calc" data-icon="custom" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-iconpos="top" data-theme="a" data-inline="true" >Rechner</a></li>
+			<li><a href="#klassen" data-transition="none" data-role="button" id="id" data-icon="custom" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-iconpos="top" data-theme="a" data-inline="true">Klassen</a></li>
+			<!--<li><a href="#kosten"  data-role="button" id="prices" data-icon="custom" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-iconpos="top" data-theme="a" data-inline="true" class="ui-btn-active ui-state-persist">Kosten</a></li>-->
+            <li><a href="#kontakt" data-transition="none" data-role="button" id="contact" data-icon="custom" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-iconpos="top" data-theme="a" data-inline="true">Kontakt</a></li>
+		</ul>
+	</div><!-- /navbar -->
+</div><!-- /footer -->
+</div>
+<!-- KOSTEN -->
+
+<!-- KONTAKT -->
+<div data-role="page" id="kontakt" data-theme="a">
+  <div data-role="header" data-id="head1" data-position="fixed"  data-tap-toggle="false" >
+  <div class="ui-grid-b">
+      <div class="ui-block-a"><img class="logo" src="img/logo.png" width="204" height="50" /></div>
+      <div class="ui-block-b"></div>
+      <div class="ui-block-c"></div>
+    </div>
+
+  </div>
+  
+  
+  	<div data-role="content">
+    <br /><br />Fahrschule Bathe<br />
+    Riemekestrasse 22<br />
+	33100 Paderborn<br />
+	Telefon: <a href="tel:+0525121117">05251 / 211 17</a><br /><br />
+	E-Mail: <a href="mailto:office@fahrschule-bathe.de">office(at)fahrschule-bathe.de</a></div>
+  
+  
+  <div class="own_navbar" data-role="footer" data-id="foo1"  data-position="fixed"  data-tap-toggle="false" >		
+	<div class="own_navbar" data-role="navbar" data-iconpos="top">
+		<ul>
+			<li><a href="#rechner" data-transition="none" data-role="button" id="calc" data-icon="custom" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-iconpos="top" data-theme="a" data-inline="true" >Rechner</a></li>
+			<li><a href="#klassen" data-transition="none" data-role="button" id="id" data-icon="custom" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-iconpos="top" data-theme="a" data-inline="true">Klassen</a></li>
+			<!-- <li><a href="#kosten"  data-role="button" id="prices" data-icon="custom" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-iconpos="top" data-theme="a" data-inline="true">Kosten</a></li> -->
+            <li><a href="#kontakt" data-transition="none" data-role="button" id="contact" data-icon="custom" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-iconpos="top" data-theme="a" data-inline="true" class="ui-btn-active ui-state-persist">Kontakt</a></li>
+		</ul>
+	</div><!-- /navbar -->
+</div><!-- /footer -->
+</div>
+<!-- KONKTAKT -->
+</body>
+</html>

@@ -38,6 +38,7 @@
 		8A6B1A2E15485D7900B74F05 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6B1A2D15485D7900B74F05 /* MainViewController.m */; };
 		8A6B1A3015485D7900B74F05 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A6B1A2F15485D7900B74F05 /* MainViewController.xib */; };
 		8A6B1A3415485D7900B74F05 /* verify.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8A6B1A3315485D7900B74F05 /* verify.sh */; };
+		8A6B1A4515485DE500B74F05 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 8A6B1A4415485DE500B74F05 /* www */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,10 +56,10 @@
 		8A6B19F615485D7900B74F05 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8A6B19F815485D7900B74F05 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		8A6B19FA15485D7900B74F05 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
-		8A6B19FE15485D7900B74F05 /* Bathe-Info.plist */ = {isa = PBXFileReference; path = "Bathe-Info.plist"; sourceTree = "<group>"; };
+		8A6B19FE15485D7900B74F05 /* Bathe-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Bathe-Info.plist"; sourceTree = "<group>"; };
 		8A6B1A0015485D7900B74F05 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8A6B1A0215485D7900B74F05 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		8A6B1A0415485D7900B74F05 /* Bathe-Prefix.pch */ = {isa = PBXFileReference; path = "Bathe-Prefix.pch"; sourceTree = "<group>"; };
+		8A6B1A0415485D7900B74F05 /* Bathe-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bathe-Prefix.pch"; sourceTree = "<group>"; };
 		8A6B1A0515485D7900B74F05 /* Cordova.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cordova.framework; path = /Users/Shared/Cordova/Frameworks/Cordova.framework; sourceTree = "<absolute>"; };
 		8A6B1A0A15485D7900B74F05 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8A6B1A0E15485D7900B74F05 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Resources/es.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -71,13 +72,14 @@
 		8A6B1A2215485D7900B74F05 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/splash/Default@2x.png"; sourceTree = "<group>"; };
 		8A6B1A2415485D7900B74F05 /* Capture.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Capture.bundle; path = Resources/Capture.bundle; sourceTree = "<group>"; };
 		8A6B1A2615485D7900B74F05 /* Cordova.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Cordova.plist; sourceTree = "<group>"; };
-		8A6B1A2915485D7900B74F05 /* AppDelegate.h */ = {isa = PBXFileReference; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
+		8A6B1A2915485D7900B74F05 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
 		8A6B1A2A15485D7900B74F05 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
-		8A6B1A2C15485D7900B74F05 /* MainViewController.h */ = {isa = PBXFileReference; name = MainViewController.h; path = Classes/MainViewController.h; sourceTree = "<group>"; };
+		8A6B1A2C15485D7900B74F05 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = Classes/MainViewController.h; sourceTree = "<group>"; };
 		8A6B1A2D15485D7900B74F05 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = Classes/MainViewController.m; sourceTree = "<group>"; };
 		8A6B1A2F15485D7900B74F05 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainViewController.xib; path = Classes/MainViewController.xib; sourceTree = "<group>"; };
-		8A6B1A3215485D7900B74F05 /* README */ = {isa = PBXFileReference; name = README; path = Plugins/README; sourceTree = "<group>"; };
+		8A6B1A3215485D7900B74F05 /* README */ = {isa = PBXFileReference; lastKnownFileType = text; name = README; path = Plugins/README; sourceTree = "<group>"; };
 		8A6B1A3315485D7900B74F05 /* verify.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = verify.sh; sourceTree = "<group>"; };
+		8A6B1A4415485DE500B74F05 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		8A6B19D015485D7800B74F05 = {
 			isa = PBXGroup;
 			children = (
+				8A6B1A4415485DE500B74F05 /* www */,
 				8A6B19FC15485D7900B74F05 /* Bathe */,
 				8A6B19E115485D7800B74F05 /* Frameworks */,
 				8A6B19DF15485D7800B74F05 /* Products */,
@@ -330,6 +333,7 @@
 				8A6B1A2715485D7900B74F05 /* Cordova.plist in Resources */,
 				8A6B1A3015485D7900B74F05 /* MainViewController.xib in Resources */,
 				8A6B1A3415485D7900B74F05 /* verify.sh in Resources */,
+				8A6B1A4515485DE500B74F05 /* www in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +471,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: fabian boulegue (7U338PL287)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = /Users/Shared/Cordova/Frameworks;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -488,6 +493,7 @@
 					/usr/lib/libSystem.B.dylib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6EEA5C41-7B87-422A-AB48-AE9A960EDAB4";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -497,6 +503,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: fabian boulegue (7U338PL287)";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = /Users/Shared/Cordova/Frameworks;
@@ -518,6 +525,7 @@
 					/usr/lib/libSystem.B.dylib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6EEA5C41-7B87-422A-AB48-AE9A960EDAB4";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
@@ -543,6 +551,7 @@
 				8A6B1A3915485D7900B74F05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
